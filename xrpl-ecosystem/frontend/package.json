@@ -1,0 +1,88 @@
+{
+  "name": "@xrpl-ecosystem/frontend",
+  "version": "1.0.0",
+  "description": "XRPL Ecosystem Frontend Applications - Unified React-based interface for all ecosystem components",
+  "private": true,
+  "workspaces": [
+    "web-interface",
+    "xaman-wallet",
+    "ai-ide",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:wallet\" \"npm run dev:ide\"",
+    "dev:web": "npm run dev --workspace=web-interface",
+    "dev:wallet": "npm run dev --workspace=xaman-wallet", 
+    "dev:ide": "npm run dev --workspace=ai-ide",
+    "build": "npm run build --workspaces",
+    "build:web": "npm run build --workspace=web-interface",
+    "build:wallet": "npm run build --workspace=xaman-wallet",
+    "build:ide": "npm run build --workspace=ai-ide",
+    "test": "npm run test --workspaces",
+    "test:web": "npm run test --workspace=web-interface",
+    "test:wallet": "npm run test --workspace=xaman-wallet",
+    "test:ide": "npm run test --workspace=ai-ide",
+    "lint": "npm run lint --workspaces",
+    "lint:fix": "npm run lint:fix --workspaces",
+    "type-check": "npm run type-check --workspaces",
+    "clean": "npm run clean --workspaces && rm -rf node_modules",
+    "install:all": "npm install && npm install --workspaces",
+    "storybook": "npm run storybook --workspace=shared",
+    "build-storybook": "npm run build-storybook --workspace=shared"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.47.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.1",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^4.32.6",
+    "@xrplf/xrpl": "^2.7.0",
+    "axios": "^1.5.0",
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "recharts": "^2.8.0",
+    "tailwindcss": "^3.3.3",
+    "zustand": "^4.4.1"
+  },
+  "keywords": [
+    "xrpl",
+    "react",
+    "frontend",
+    "defi",
+    "nft",
+    "ai",
+    "wallet",
+    "trading"
+  ],
+  "author": "XRPL Ecosystem Team",
+  "license": "MIT",
+  "xrpl-ecosystem": {
+    "type": "frontend",
+    "category": "applications",
+    "applications": [
+      "web-interface",
+      "xaman-wallet", 
+      "ai-ide"
+    ],
+    "shared": [
+      "components",
+      "hooks",
+      "stores",
+      "utils",
+      "types"
+    ]
+  }
+}

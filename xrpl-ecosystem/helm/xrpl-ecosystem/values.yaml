@@ -1,0 +1,290 @@
+# Default values for xrpl-ecosystem
+# This is a YAML-formatted file.
+
+replicaCount: 3
+
+image:
+  repository: ghcr.io/xrpl-ecosystem/xrpl-ecosystem
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  fsGroup: 2000
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3001
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  hosts:
+    - host: api.xrpl-ecosystem.org
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: xrpl-ecosystem-tls
+      hosts:
+        - api.xrpl-ecosystem.org
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+  requests:
+    cpu: 500m
+    memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 20
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Core Services Configuration
+core:
+  xrplClient:
+    enabled: true
+    replicaCount: 3
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 256Mi
+
+  dexEngine:
+    enabled: true
+    replicaCount: 3
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+      requests:
+        cpu: 500m
+        memory: 512Mi
+
+  bridgeEngine:
+    enabled: true
+    replicaCount: 2
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 256Mi
+
+  security:
+    enabled: true
+    replicaCount: 2
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 256Mi
+
+# Applications Configuration
+applications:
+  trading:
+    enabled: true
+    replicaCount: 2
+  defi:
+    enabled: true
+    replicaCount: 2
+  nft:
+    enabled: true
+    replicaCount: 2
+  ai:
+    enabled: true
+    replicaCount: 2
+
+# Frontend Configuration
+frontend:
+  webInterface:
+    enabled: true
+    replicaCount: 2
+  xamanWallet:
+    enabled: true
+    replicaCount: 2
+  aiIde:
+    enabled: true
+    replicaCount: 2
+
+# Infrastructure Configuration
+postgresql:
+  enabled: true
+  auth:
+    postgresPassword: "password"
+    database: "xrpl_ecosystem"
+  primary:
+    persistence:
+      enabled: true
+      size: 20Gi
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+      requests:
+        cpu: 500m
+        memory: 512Mi
+
+redis:
+  enabled: true
+  auth:
+    enabled: false
+  master:
+    persistence:
+      enabled: true
+      size: 8Gi
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 256Mi
+
+# Monitoring Configuration
+monitoring:
+  prometheus:
+    enabled: true
+    server:
+      persistentVolume:
+        enabled: true
+        size: 10Gi
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 1Gi
+        requests:
+          cpu: 500m
+          memory: 512Mi
+
+  grafana:
+    enabled: true
+    adminPassword: "admin"
+    persistence:
+      enabled: true
+      size: 5Gi
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 256Mi
+
+# Logging Configuration
+logging:
+  elasticsearch:
+    enabled: true
+    replicas: 1
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+      requests:
+        cpu: 500m
+        memory: 512Mi
+
+  kibana:
+    enabled: true
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 256Mi
+
+# Environment Configuration
+env:
+  XRPL_NETWORK: "mainnet"
+  REDIS_URL: "redis://redis-master:6379"
+  DATABASE_URL: "postgresql://postgres:password@postgresql:5432/xrpl_ecosystem"
+  AI_MODEL_ENDPOINT: "https://api.openai.com/v1"
+  ETHEREUM_RPC_URL: "https://mainnet.infura.io/v3/YOUR_PROJECT_ID"
+  BSC_RPC_URL: "https://bsc-dataseed.binance.org"
+  POLYGON_RPC_URL: "https://polygon-rpc.com"
+  ARBITRUM_RPC_URL: "https://arb1.arbitrum.io/rpc"
+  OPTIMISM_RPC_URL: "https://mainnet.optimism.io"
+
+# Secrets (should be provided via external secrets or sealed secrets)
+secrets:
+  XRPL_ACCOUNT: ""
+  XRPL_SECRET: ""
+  AI_API_KEY: ""
+  ETHERSCAN_API_KEY: ""
+  BSCSCAN_API_KEY: ""
+  POLYGONSCAN_API_KEY: ""
+  ARBISCAN_API_KEY: ""
+  OPTIMISTIC_ETHERSCAN_API_KEY: ""
+
+# Network Policies
+networkPolicy:
+  enabled: true
+  ingress:
+    enabled: true
+  egress:
+    enabled: true
+
+# Pod Disruption Budget
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+# Horizontal Pod Autoscaler
+hpa:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 20
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+# Service Monitor for Prometheus
+serviceMonitor:
+  enabled: true
+  interval: 30s
+  scrapeTimeout: 10s
+  labels: {}
+
+# Grafana Dashboard
+grafanaDashboard:
+  enabled: true
+  labels: {}
