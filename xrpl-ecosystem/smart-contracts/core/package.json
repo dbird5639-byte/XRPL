@@ -1,0 +1,79 @@
+{
+  "name": "@xrpl-ecosystem/evm-sidechain",
+  "version": "1.0.0",
+  "description": "Global Cooperation & Peace Infrastructure for 2030+",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "npm run test",
+    "deploy": "hardhat run scripts/deploy_vision_2030_contracts.js",
+    "deploy:local": "hardhat run scripts/deploy_vision_2030_contracts.js --network localhost",
+    "deploy:testnet": "hardhat run scripts/deploy_vision_2030_contracts.js --network testnet",
+    "deploy:mainnet": "hardhat run scripts/deploy_vision_2030_contracts.js --network mainnet",
+    "verify": "hardhat verify",
+    "coverage": "hardhat coverage",
+    "lint": "npm run lint",
+    "lint:fix": "eslint . --fix",
+    "clean": "hardhat clean",
+    "node": "hardhat node",
+    "console": "hardhat console",
+    "dev": "npm run start",
+    "build": "npm run build"
+  },
+  "keywords": [
+    "blockchain",
+    "smart-contracts",
+    "peace",
+    "cooperation",
+    "energy",
+    "ai",
+    "governance",
+    "sustainability",
+    "international",
+    "diplomacy",
+    "2030",
+    "future",
+    "prosperity"
+  ],
+  "author": "Vision 2030+ Development Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/hardhat-upgrades": "^1.28.0",
+    "@typechain/ethers-v5": "^10.2.1",
+    "@typechain/hardhat": "^8.0.0",
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.5.0",
+    "chai": "^4.3.7",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.17.1",
+    "hardhat-gas-reporter": "^1.0.9",
+    "solidity-coverage": "^0.8.5",
+    "typechain": "^8.3.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vision2030plus/global-cooperation-infrastructure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vision2030plus/global-cooperation-infrastructure/issues"
+  },
+  "homepage": "https://vision2030plus.org",
+  "xrpl-ecosystem": {
+    "type": "application",
+    "category": "other",
+    "version": "1.0.0"
+  }
+}

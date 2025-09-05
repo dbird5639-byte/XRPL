@@ -1,0 +1,80 @@
+{
+  "name": "@xrpl-ecosystem/smart-contracts",
+  "version": "1.0.0",
+  "description": "XRPL Ecosystem Smart Contracts - Cross-chain DeFi, AI, and NFT protocols",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network xrplEVMTestnet",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network xrplEVM",
+    "deploy:all": "npm run deploy:testnet && npm run deploy:mainnet",
+    "verify:testnet": "hardhat verify --network xrplEVMTestnet",
+    "verify:mainnet": "hardhat verify --network xrplEVM",
+    "size": "hardhat size-contracts",
+    "gas-report": "REPORT_GAS=true hardhat test",
+    "clean": "hardhat clean",
+    "node": "hardhat node",
+    "console": "hardhat console"
+  },
+  "keywords": [
+    "xrpl",
+    "ethereum",
+    "smart-contracts",
+    "defi",
+    "nft",
+    "ai",
+    "cross-chain",
+    "bridge"
+  ],
+  "author": "XRPL Ecosystem Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^1.1.0",
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "@openzeppelin/hardhat-upgrades": "^1.28.0",
+    "hardhat": "^2.17.1",
+    "hardhat-contract-sizer": "^2.10.0",
+    "hardhat-gas-reporter": "^1.0.9",
+    "solidity-coverage": "^0.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.8.0",
+    "erc721a": "^4.2.3"
+  },
+  "xrpl-ecosystem": {
+    "type": "smart-contracts",
+    "category": "core",
+    "networks": [
+      "xrplEVM",
+      "xrplEVMTestnet",
+      "ethereum",
+      "bsc",
+      "polygon",
+      "arbitrum",
+      "optimism"
+    ],
+    "contracts": {
+      "core": [
+        "XRPToken",
+        "XRPLBridge",
+        "DeFiProtocol",
+        "NFTMarketplace"
+      ],
+      "applications": [
+        "AIAgentFactory",
+        "AIAutomationEngine",
+        "AIDatasetMarketplace",
+        "AICitizenRightsFramework",
+        "CleanEnergyTradingPlatform",
+        "GlobalCooperationDAO",
+        "PeaceProtocolInfrastructure"
+      ]
+    }
+  }
+}
