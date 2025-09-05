@@ -1,0 +1,61 @@
+{
+  "name": "xrpl-agent-ecosystem",
+  "version": "1.0.0",
+  "description": "Advanced EVM sidechain platform for XRPL agents, smart contracts, and decentralized applications",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network testnet",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network mainnet",
+    "verify": "hardhat verify",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test:frontend": "jest",
+    "create:agent": "node scripts/create-agent.js",
+    "test:agent": "node scripts/test-agent.js",
+    "deploy:agent": "node scripts/deploy-agent.js"
+  },
+  "keywords": [
+    "xrpl",
+    "ethereum",
+    "evm",
+    "sidechain",
+    "agents",
+    "defi",
+    "blockchain",
+    "smart-contracts"
+  ],
+  "author": "XRPL Agent Ecosystem",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.3",
+    "@chainlink/contracts": "^0.8.0",
+    "hardhat": "^2.17.1",
+    "ethers": "^5.7.2",
+    "web3": "^4.1.1",
+    "next": "^13.5.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.2",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "tailwindcss": "^3.3.3",
+    "graphql": "^16.8.1",
+    "apollo-client": "^2.6.10",
+    "redis": "^4.6.8",
+    "postgresql": "^3.0.0",
+    "docker": "^1.0.0",
+    "kubernetes": "^1.0.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.2",
+    "@types/node": "^20.5.9",
+    "eslint": "^8.48.0",
+    "eslint-config-next": "^13.5.4",
+    "jest": "^29.6.4",
+    "prettier": "^3.0.3"
+  }
+}
