@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0f172a;
+    color: #f8fafc;
+  }
+
+  code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-md transition-colors duration-200;
+  }
+
+  .btn-success {
+    @apply px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md transition-colors duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+
+  .sidebar-panel {
+    @apply bg-gray-800 border-r border-gray-700;
+  }
+
+  .main-panel {
+    @apply bg-gray-900;
+  }
+
+  .code-editor {
+    @apply font-mono text-sm;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #4a5568 #2d3748;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #2d3748;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Monaco Editor customizations */
+.monaco-editor .margin {
+  background-color: #1e293b !important;
+}
+
+.monaco-editor .monaco-editor-background {
+  background-color: #0f172a !important;
+}
+
+.monaco-editor .line-numbers {
+  color: #64748b !important;
+}
+
+/* XRP Ledger specific styling */
+.xrp-gradient {
+  background: linear-gradient(135deg, #23292f 0%, #1a1a1a 100%);
+}
+
+.xrp-glow {
+  box-shadow: 0 0 20px rgba(0, 200, 81, 0.3);
+}
+
+.xrp-border {
+  border: 1px solid rgba(0, 200, 81, 0.3);
+}
