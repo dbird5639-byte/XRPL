@@ -1,0 +1,64 @@
+{
+  "name": "xrpl-ecosystem",
+  "version": "1.0.0",
+  "description": "Comprehensive XRPL ecosystem with cross-chain DEX, DeFi protocols, and innovative applications",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend/web-interface && npm run dev",
+    "dev:backend": "python main.py",
+    "build": "npm run build:frontend && npm run build:contracts",
+    "build:frontend": "cd frontend/web-interface && npm run build",
+    "build:contracts": "cd smart-contracts && npm run compile",
+    "test": "npm run test:frontend && npm run test:backend && npm run test:contracts",
+    "test:frontend": "cd frontend/web-interface && npm run test",
+    "test:backend": "python -m pytest tests/",
+    "test:contracts": "cd smart-contracts && npm run test",
+    "deploy": "npm run deploy:contracts && npm run deploy:frontend",
+    "deploy:contracts": "cd smart-contracts && npm run deploy",
+    "deploy:frontend": "cd frontend/web-interface && npm run build && npm run deploy",
+    "setup": "npm run setup:frontend && npm run setup:backend && npm run setup:contracts",
+    "setup:frontend": "cd frontend/web-interface && npm install",
+    "setup:backend": "pip install -r requirements.txt",
+    "setup:contracts": "cd smart-contracts && npm install",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "cd frontend/web-interface && npm run lint",
+    "lint:backend": "python -m flake8 .",
+    "format": "npm run format:frontend && npm run format:backend",
+    "format:frontend": "cd frontend/web-interface && npm run format",
+    "format:backend": "python -m black ."
+  },
+  "keywords": [
+    "xrpl",
+    "xrp",
+    "dex",
+    "defi",
+    "blockchain",
+    "cross-chain",
+    "trading",
+    "nft",
+    "smart-contracts"
+  ],
+  "author": "XRPL Ecosystem Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "frontend/*",
+    "smart-contracts",
+    "applications/*"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xrpl-ecosystem/xrpl-ecosystem.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xrpl-ecosystem/xrpl-ecosystem/issues"
+  },
+  "homepage": "https://github.com/xrpl-ecosystem/xrpl-ecosystem#readme"
+}

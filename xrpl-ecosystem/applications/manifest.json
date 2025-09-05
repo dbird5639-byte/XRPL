@@ -1,0 +1,146 @@
+{
+  "ecosystem": "xrpl-ecosystem",
+  "version": "1.0.0",
+  "applications": [
+    {
+      "name": "ai_trading",
+      "type": "trading",
+      "category": "trading",
+      "path": "applications\\trading\\ai-trading",
+      "status": "active"
+    },
+    {
+      "name": "arbitrage_bot",
+      "type": "trading",
+      "category": "trading",
+      "path": "applications\\trading\\arbitrage-bot",
+      "status": "active"
+    },
+    {
+      "name": "yield_aggregator",
+      "type": "trading",
+      "category": "trading",
+      "path": "applications\\trading\\yield-aggregator",
+      "status": "active"
+    },
+    {
+      "name": "gaming_wallet_apps",
+      "type": "wallet",
+      "category": "wallets",
+      "path": "applications\\wallets\\gaming-wallet",
+      "status": "active"
+    },
+    {
+      "name": "healthcare_app",
+      "type": "wallet",
+      "category": "wallets",
+      "path": "applications\\wallets\\healthcare-wallet",
+      "status": "active"
+    },
+    {
+      "name": "crypto_tax_app",
+      "type": "wallet",
+      "category": "wallets",
+      "path": "applications\\wallets\\crypto-tax-wallet",
+      "status": "active"
+    },
+    {
+      "name": "nft_marketplace",
+      "type": "marketplace",
+      "category": "marketplaces",
+      "path": "applications\\marketplaces\\nft-marketplace",
+      "status": "active"
+    },
+    {
+      "name": "fengshui_app",
+      "type": "marketplace",
+      "category": "marketplaces",
+      "path": "applications\\marketplaces\\fengshui-nft",
+      "status": "active"
+    },
+    {
+      "name": "inheritance_escrow",
+      "type": "application",
+      "category": "utilities",
+      "path": "applications\\utilities\\inheritance-escrow",
+      "status": "active"
+    },
+    {
+      "name": "payment_processor",
+      "type": "utility",
+      "category": "utilities",
+      "path": "applications\\utilities\\payment-processor",
+      "status": "active"
+    },
+    {
+      "name": "staking_service",
+      "type": "utility",
+      "category": "utilities",
+      "path": "applications\\utilities\\staking-service",
+      "status": "active"
+    },
+    {
+      "name": "lending_platform",
+      "type": "utility",
+      "category": "utilities",
+      "path": "applications\\utilities\\lending-platform",
+      "status": "active"
+    },
+    {
+      "name": "web_interface",
+      "type": "application",
+      "category": "other",
+      "path": "frontend\\web-interface",
+      "status": "active"
+    },
+    {
+      "name": "xaman_wallet_xapp",
+      "type": "wallet",
+      "category": "other",
+      "path": "frontend\\xaman-wallet",
+      "status": "active"
+    },
+    {
+      "name": "xrp_ai_ide_demo",
+      "type": "application",
+      "category": "other",
+      "path": "frontend\\ai-ide",
+      "status": "active"
+    },
+    {
+      "name": "evm_sidechain",
+      "type": "application",
+      "category": "other",
+      "path": "smart-contracts\\core",
+      "status": "active"
+    },
+    {
+      "name": "ai_framework",
+      "type": "application",
+      "category": "other",
+      "path": "smart-contracts\\applications\\ai-framework",
+      "status": "active"
+    },
+    {
+      "name": "web-interface",
+      "type": "application",
+      "category": "other",
+      "path": "frontend\\web-interface",
+      "status": "active"
+    },
+    {
+      "name": "xaman-wallet",
+      "type": "wallet",
+      "category": "other",
+      "path": "frontend\\xaman-wallet",
+      "status": "active"
+    },
+    {
+      "name": "ai-ide",
+      "type": "application",
+      "category": "other",
+      "path": "frontend\\ai-ide",
+      "status": "active"
+    }
+  ]
+}
