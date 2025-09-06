@@ -1,0 +1,95 @@
+# Security Configuration for Safety and Defense Software
+# This file contains sensitive security parameters
+
+security:
+  # Encryption Standards
+  encryption:
+    algorithm: "AES-256-GCM"
+    key_length: 256
+    hash_algorithm: "SHA-256"
+    pbkdf2_iterations: 100000
+  
+  # Authentication
+  authentication:
+    mfa_required: true
+    session_timeout: 3600  # seconds
+    max_login_attempts: 3
+    lockout_duration: 900  # seconds
+    password_policy:
+      min_length: 12
+      require_uppercase: true
+      require_lowercase: true
+      require_numbers: true
+      require_special: true
+      max_age_days: 90
+  
+  # Network Security
+  network:
+    tls_version: "1.3"
+    cipher_suites:
+      - "TLS_AES_256_GCM_SHA384"
+      - "TLS_CHACHA20_POLY1305_SHA256"
+    require_client_cert: true
+    allowed_ips: []
+    vpn_required: true
+  
+  # Data Protection
+  data_protection:
+    encryption_at_rest: true
+    encryption_in_transit: true
+    data_classification:
+      - "PUBLIC"
+      - "INTERNAL"
+      - "CONFIDENTIAL"
+      - "SECRET"
+      - "TOP_SECRET"
+    retention_policy:
+      default_days: 2555  # 7 years
+      audit_logs_days: 3650  # 10 years
+  
+  # Audit and Logging
+  audit:
+    log_level: "INFO"
+    log_retention_days: 3650
+    sensitive_operations:
+      - "user_creation"
+      - "permission_change"
+      - "data_access"
+      - "system_config_change"
+    alert_thresholds:
+      failed_login_attempts: 5
+      suspicious_activity: 10
+  
+  # Compliance
+  compliance:
+    fips_140_2: true
+    hipaa: false
+    sox: true
+    gdpr: false
+    fedramp: true
+  
+  # Threat Detection
+  threat_detection:
+    enabled: true
+    machine_learning: true
+    anomaly_detection: true
+    signature_based: true
+    real_time_monitoring: true
+    alert_channels:
+      - "email"
+      - "sms"
+      - "dashboard"
+      - "api"
+  
+  # Incident Response
+  incident_response:
+    auto_containment: true
+    escalation_procedures: true
+    response_teams:
+      - "security_team"
+      - "management"
+      - "legal"
+    notification_timeline:
+      immediate: ["security_team"]
+      within_1_hour: ["management"]
+      within_4_hours: ["legal"]
